@@ -8,4 +8,14 @@ class Controlador
         _sistema = sistema;
         _vista = vista;
     }
+
+    void CasoDeUso1()
+    {
+
+    }
+
+    void CasoDeUso2()
+    {
+
+    }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 
 
-var sistema = new Sistema();
-var vista = new Vista();
-var controlador = new Controlador(sistema, vista);
+Sistema sistema = new();
+Vista vista = new();
+Controlador controlador = new(sistema, vista);
 
 Console.WriteLine("Hello World!");
