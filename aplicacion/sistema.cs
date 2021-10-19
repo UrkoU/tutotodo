@@ -6,11 +6,11 @@ class Sistema
     List<int> data = new();
     // Métodos de lenguaje empresarial
 
-    int metodo1(int param1, int param2)
+    public int SumaDataOno(DataModel data)
     {
-        if (param1 > 7)
+        if (data.a > 7)
             return -3;
 
-        return param1 + param2;
+        return data.a + data.b;
     }
 }

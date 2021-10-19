@@ -21,28 +21,30 @@ class Vista
             try
             {
                 // c# Reflexion
+                // https://stackoverflow.com/questions/2961656/generic-tryparse?rq=1
                 var valor = TypeDescriptor.GetConverter(typeof(T)).ConvertFromString(input);
                 return (T)valor;
             }
             catch (Exception e)
             {
-                if (input != "") Display($"Error: '{e}' '{input}' no reconocido como entrada permitida");
+                if (input != "") Display($"Error: '{input}' no reconocido como entrada permitida");
             }
         }
     }
-    public void MostrarListaEnumerada<T>(string titulo, List<T> valores)
+    public void MostrarListaEnumerada<T>(string titulo, IEnumerable<T> valores)
     {
         Display(titulo);
-        for (int i = 0; i < valores.Count; i++)
+        for (int i = 0; i < valores.Count(); i++)
         {
-            WriteLine($"{i + 1:##}.- {valores[i].ToString()}");
+            WriteLine($"{i + 1:##}.- {valores.ElementAt(i).ToString()}");
         }
     }
-    public T TrySeleccionarOpcionDeListaEnumerada<T>(string titulo, List<T> lista, string prompt)
+    public T TrySeleccionarOpcionDeListaEnumerada<T>
+    (string titulo, IEnumerable<T> lista, string prompt)
     {
         MostrarListaEnumerada(titulo, lista);
         int input = 0;
-        while (input < 1 || input > lista.Count)
+        while (input < 1 || input > lista.Count())
             try
             {
                 input = TryObtenerEntradaDeTipo<int>(prompt);

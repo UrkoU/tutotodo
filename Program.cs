@@ -2,8 +2,6 @@
 
 
 Sistema sistema = new();
-Vista vista = new();
-Controlador controlador = new(sistema, vista);
+Vista _vista = new();
+Controlador controlador = new(sistema, _vista);
 controlador.Run();
-
-Console.WriteLine("Agur World!");
