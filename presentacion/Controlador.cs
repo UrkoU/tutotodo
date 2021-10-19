@@ -9,6 +9,11 @@ class Controlador
         _vista = vista;
     }
 
+    public void Run()
+    {
+
+    }
+
     void CasoDeUso1()
     {
 
